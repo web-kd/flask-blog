@@ -1,0 +1,71 @@
+{% extends"layout.html" %}
+
+{%block body%}
+
+        <!-- Page Header-->
+<header class="masthead" style="background-image: url('{{url_for('static',filename='assets/img/home-bg.jpg')}}">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>POSTS</h1>
+                    <span class="subheading">edit ur post here....</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <p>Want to edit ur post! here is your selected post.</p>
+                <div class="my-5">
+
+
+<form id="editForm" action=/edit/{{sno}} method="Post" data-sb-form-api-token="API_TOKEN">
+    <div class="form-floating">
+        <input class="form-control" id="title" type="text" placeholder="Enter ur Title..." name='title' data-sb-validations="required" value="{{post.title}}"/>
+        <label for="Title">Title</label>
+        <div class="invalid-feedback" data-sb-feedback="name:required">Titile is required.</div>
+    </div>
+    <div class="form-floating">
+        <input class="form-control" id="slug" type="text" placeholder="Enter ur slug" name='slug' data-sb-validations="required,email" value="{{post.slug}}" />
+        <label for="slug">slug</label>
+
+    </div>
+    <div class="form-floating">
+        <input class="form-control" id="content" type="text" placeholder="Enter your content..." name='content' data-sb-validations="required"value="{{post.content}}" />
+        <label for="content">Content</label>
+        <div class="invalid-feedback" data-sb-feedback="phone:required">content is required.</div>
+    </div>
+    <div class="form-floating">
+        <input id="img" placeholder="Enter ur image file..." name='img' style="height:12rem" data-sb-validations="required" value="{{post.img_file}}"></textarea>
+        <label for="message">img_file</label>
+        
+    </div>
+    <br />
+    <!-- Submit success message-->
+    <!---->
+    <!-- This is what your users will see when the form-->
+    <!-- has successfully submitted-->
+    <div class="d-none" id="submitSuccessMessage">
+        <div class="text-center mb-3">
+            <div class="fw-bolder">Form submission successful!</div>
+            To activate this form, sign up at
+            <br />
+            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+        </div>
+    </div>
+    <!-- Submit error message-->
+    <!---->
+    <!-- This is what your users will see when there is-->
+    <!-- an error submitting the form-->
+    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+    <!-- Submit Button-->
+    <input type="submit" value="Submit">
+</form>
+
+
+{% endblock %}

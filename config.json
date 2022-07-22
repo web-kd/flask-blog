@@ -1,0 +1,13 @@
+{
+"params": {
+        "local_server":"mysql://root:@localhost/kd_ores",
+        "fb_url":"https://facebook.com/kdgtech",
+        "tw_url":"https://twitter.com/kdgtech",
+        "gw_url":"https://github.com/kdgtech",
+        "no_of_posts":3,
+        "user":"kartik",
+        "password":"kartik12",
+        "upload_location":"C:\\Users\\MyEliteBook\\Desktop\\main-20220712T065100Z-001\\main\\static"
+    }   
+}
+

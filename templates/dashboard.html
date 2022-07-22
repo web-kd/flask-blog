@@ -1,0 +1,63 @@
+{% extends"layout.html" %}
+
+{%block body%}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{url_for('static',filename='assets/img/admin-wb.jpg')}}">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Admin panel</h1>
+                            <span class="subheading">This is what I do.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content-->
+        <h1> Welcome toAdmin panel</h1>
+        <hr>
+        <hr>
+        <h1>Basic functions</h1>
+        <a href="/edit/0"> <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">Add a new post</button></a>
+        <a href="/logout"> <button type="button" class="btn btn-danger">Logout</button> </a>
+        <hr>
+        <hr>
+        <h1>Upload a new file</h1>
+        <form action="/uploader" method="post"  enctype="multipart/form-data">
+<input type="file" name="file1">
+<button type="submit">submit</button>
+
+        </form>
+
+
+
+
+        
+
+        <table class="table">
+          <!-- <caption>List of users</caption> -->
+          <thead>
+            <tr>
+              <th scope="col">Sno</th>
+              <th scope="col">Title</th>
+              <th scope="col">Date</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for post in post %}
+            <tr>
+              <th scope="row">{{post.sno}}</th>
+              <td>{{post.title}}</td>
+              <td>{{post.date}}</td>
+              <td><a href="/edit/{{post.sno}}"><button type="button" class="btn btn-warning">Edit</button></td></a>
+              <td><a href="/delete/{{post.sno}}"><button type="button" class="btn btn-danger">Delete</button></td></a>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+{%endblock%}
+
